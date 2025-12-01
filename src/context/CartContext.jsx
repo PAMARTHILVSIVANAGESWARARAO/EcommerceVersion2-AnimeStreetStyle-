@@ -5,7 +5,16 @@ import React, { createContext, useEffect, useState } from 'react';
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    // Load cart from localStorage on initial render
+    try {
+      const savedCart = localStorage.getItem('cart');
+      return savedCart ? JSON.parse(savedCart) : [];
+    } catch (error) {
+      console.error('Error loading cart from localStorage:', error);
+      return [];
+    }
+  });
 
   const [itemAmount, setItemAmount] = useState(0);
 
@@ -29,6 +38,15 @@ const CartProvider = ({ children }) => {
       setItemAmount(amount);
     }
   },[cart])
+
+  // Save cart to localStorage whenever cart changes
+  useEffect(() => {
+    try {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } catch (error) {
+      console.error('Error saving cart to localStorage:', error);
+    }
+  }, [cart]);
 
   const addToCart = (product, id) => {
     const newItem = { ...product, amount: 1 };
