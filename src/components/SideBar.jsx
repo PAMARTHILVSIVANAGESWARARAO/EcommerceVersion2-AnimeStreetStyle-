@@ -7,7 +7,20 @@ import { CartContext } from '../context/CartContext.jsx'
 
 function SideBar() {
   const { isOpen, handleClose } = useContext(SideBarContext);
-  const { cart, clearCart, total ,itemAmount} = useContext(CartContext);
+  const { cart, clearCart, total, itemAmount } = useContext(CartContext);
+
+  const handleOrder = () => {
+  const confirmed = window.confirm(
+    `Your total amount is ₹${total}. Do you want to confirm this order?`
+  );
+
+  if (confirmed) {
+    alert("Order placed! Delivered within 7 working days.");
+    clearCart();
+  }
+};
+
+
 
   return (
     <div
@@ -53,7 +66,7 @@ function SideBar() {
       <div className="flex flex-col gap-y-3 py-4 px-2 rounded-lg">
         <div className="flex w-full justify-between items-center">
           <div className="flex items-center gap-2 uppercase font-semibold">
-            <span>Total :</span> <i className="bi bi-currency-rupee"></i> {total-100}
+            <span>Total :</span> <i className="bi bi-currency-rupee"></i>  {Math.max(0, total - 100)}
           </div>
 
           <div
@@ -72,18 +85,18 @@ function SideBar() {
           <Link
             to="/"
             className="bg-gray-200 px-4 py-2  w-full text-center font-semibold"
-            style={{ textDecoration: 'none' , color:"black" }}
+            style={{ textDecoration: 'none', color: "black" }}
           >
             View Cart
           </Link>
 
-          <Link
-            to="/"
+          <div onClick={handleOrder}
+
             className="bg-orange-500 text-white px-4 py-2  w-full text-center font-semibold"
             style={{ textDecoration: 'none' }}
           >
             Checkout
-          </Link>
+          </div>
         </div>
       </div>
     </div>
