@@ -1,5 +1,7 @@
 # Anime Street Style – E-Commerce
 
+
+# Working Url : "https://animestreetstyle.onrender.com/" 
 ## Introduction
 
 Anime Street Style is a modern e-commerce platform inspired by anime culture, offering a seamless shopping experience for anime-themed products. Built with cutting-edge technologies, this application provides an intuitive interface for browsing, viewing details, and purchasing items. The platform features dynamic product generation, a responsive design, and persistent cart functionality to enhance user engagement.
@@ -134,20 +136,12 @@ Ensure you have Node.js and npm installed on your system before proceeding.
 ## Future Enhancements
 
 - **User Authentication**: Implement login/signup functionality for personalized experiences.
-- **Payment Integration**: Add secure payment gateways for real transactions.
 - **Wishlist Feature**: Allow users to save favorite products.
 - **Search and Filters**: Enhance product discovery with search and category filters.
 - **Admin Panel**: Create an admin interface for managing products and orders.
-- **Multi-language Support**: Add internationalization for broader accessibility.
 
-## Author Info
+  
 
-- **Name**: [Your Name]
-- **GitHub**: [Your GitHub Profile]
-- **LinkedIn**: [Your LinkedIn Profile]
-- **Email**: [Your Email]
-
-Feel free to reach out for collaborations or feedback!
 
 ---
 
